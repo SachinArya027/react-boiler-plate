@@ -5,6 +5,11 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.jsx?$/,
+        use: ['babel-loader'],
+        exclude: [/node_modules/]
+      },
+      {
         test: /\.html$/,
         use: ['html-loader']
       },
@@ -13,10 +18,14 @@ module.exports = {
         use: {
           loader: 'file-loader',
           options: {
-            name: '[path][name].[hash].[ext]',
+            name: '[name].[hash].[ext]',
+            outputPath: 'assets'
           }
         }
       }
     ]
+  },
+  resolve: {
+    extensions: ['.js', '.jsx']
   }
 };

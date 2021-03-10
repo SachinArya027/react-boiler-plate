@@ -18,14 +18,15 @@ module.exports = merge(common, {
       new OptimizeCssAssetsPlugin(),
       new TerserPlugin(),
       new HtmlWebpackPlugin({
-        template: './public/index.html',
+        template: path.resolve(__dirname, 'public', 'index.html'),
         minify: {
           removeAttributeQuotes: true,
           collapseWhitespace: true,
           removeComments: true
         }
       })
-    ]
+    ],
+    splitChunks: { chunks: 'all' }
   },
   plugins: [
     new MiniCssExtractPlugin({ filename: '[name].[hash].min.css' }),
