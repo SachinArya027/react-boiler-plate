@@ -2,7 +2,7 @@ const ESLintPlugin = require('eslint-webpack-plugin');
 
 module.exports = {
   entry: {
-    main: './src/index.js'
+    main: './src/index.jsx'
   },
   module: {
     rules: [

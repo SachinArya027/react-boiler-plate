@@ -6,7 +6,9 @@ module.exports = {
   extends: [
     'plugin:react/recommended',
     'airbnb',
-    'plugin:jsx-a11y/recommended'
+    'plugin:jsx-a11y/recommended',
+    'plugin:jest/recommended',
+    'plugin:jest-dom/recommended'
   ],
   parserOptions: {
     ecmaFeatures: {
@@ -15,7 +17,7 @@ module.exports = {
     ecmaVersion: 12,
     sourceType: 'module'
   },
-  plugins: ['react', 'react-hooks', 'jsx-a11y'],
+  plugins: ['react', 'react-hooks', 'jsx-a11y', 'jest', 'jest-dom'],
   rules: {
     'linebreak-style': 0,
     'comma-dangle': ['error', 'never'],
@@ -24,7 +26,12 @@ module.exports = {
     'import/no-extraneous-dependencies': [
       'error',
       {
-        devDependencies: ['**/webpack.*.js']
+        devDependencies: [
+          '**/webpack.*.js',
+          '**/setupTests.js',
+          '**/*.test.js',
+          '**/*.test.jsx'
+        ]
       }
     ]
   }
