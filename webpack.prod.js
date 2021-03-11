@@ -10,7 +10,7 @@ const common = require('./webpack.common');
 module.exports = merge(common, {
   mode: 'production',
   output: {
-    filename: '[name].[hash].bundle.min.js',
+    filename: '[name].[fullhash].bundle.min.js',
     path: path.resolve(__dirname, 'dist')
   },
   optimization: {
@@ -26,10 +26,10 @@ module.exports = merge(common, {
         }
       })
     ],
-    splitChunks: { chunks: 'all' }
+    splitChunks: { chunks: 'all', filename: 'vendor.[fullhash].bundle.min.js' }
   },
   plugins: [
-    new MiniCssExtractPlugin({ filename: '[name].[hash].min.css' }),
+    new MiniCssExtractPlugin({ filename: '[name].[fullhash].min.css' }),
     new CleanWebpackPlugin()
   ],
   module: {

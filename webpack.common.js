@@ -33,7 +33,8 @@ module.exports = {
   plugins: [
     new ESLintPlugin({
       context: './src',
-      extensions: ['js', 'html', 'scss', 'jsx']
+      extensions: ['js', 'html', 'jsx'],
+      exclude: 'node_modules'
     })
   ]
 };
